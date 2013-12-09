@@ -31,7 +31,8 @@ public class Server {
 				int y = (int) Float.parseFloat(Coords[1]);
 				cx += x;
 				cy += y;
-				robo.mouseMove(cx, cy);
+				System.out.println(cx);
+				//robo.mouseMove(cx, cy);
 			}
 
 		} catch (SocketException ex) {
