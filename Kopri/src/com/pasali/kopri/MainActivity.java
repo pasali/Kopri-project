@@ -41,7 +41,7 @@ public class MainActivity extends Activity {
 					distance_y = String.valueOf((int) event.getY() - pre_y);
 					pre_x = (int) event.getX();
 					pre_y = (int) event.getY();
-					new Thread(new ClientThread()).run();
+					new Thread(new ClientThread()).start();
 					break;
 				}
 				}
@@ -66,7 +66,7 @@ public class MainActivity extends Activity {
 			try {
 				String pkg = distance_x + "," + distance_y;
 				DatagramSocket s = new DatagramSocket();
-				InetAddress serverAddr = InetAddress.getByName("192.168.1.100");
+				InetAddress serverAddr = InetAddress.getByName("192.168.1.41");
 				byte[] Data = new byte[1024];
 				Data = pkg.getBytes();
 				DatagramPacket sendPacket = new DatagramPacket(Data,
