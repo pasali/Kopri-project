@@ -25,7 +25,6 @@ public class Server {
 			int cy = (int) b.getY();
 			byte[] receiveData = new byte[1024];
 			while (true) {
-
 				receiveData = new byte[1024];
 				DatagramPacket receivePacket = new DatagramPacket(receiveData,
 						receiveData.length);
@@ -34,7 +33,6 @@ public class Server {
                         receivePacket.getLength(), "UTF-8");
 				if (data.equals("left")) {
 					click(cx, cy, left);
-					
 				} else if (data.equals("right")) {
 					click(cx, cy, right);
 					

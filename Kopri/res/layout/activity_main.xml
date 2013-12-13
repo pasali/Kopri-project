@@ -9,18 +9,23 @@
     tools:context=".MainActivity" >
 
     <Button
-        android:id="@+id/Button2"
-        android:layout_width="150dp"
-        android:layout_height="60dp"
-        android:layout_alignBaseline="@+id/button1"
-        android:layout_alignBottom="@+id/button1"
-        android:layout_alignParentRight="true" />
-
-    <Button
         android:id="@+id/button1"
-        android:layout_width="150dp"
-        android:layout_height="60dp"
-        android:layout_alignParentBottom="true"
-        android:layout_toLeftOf="@+id/Button2" />
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:text="@string/connect" />
+
+    <EditText
+        android:id="@+id/editText1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/button1"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="39dp"
+        android:ems="10"
+        android:inputType="textPersonName" >
+        <requestFocus />
+    </EditText>
 
 </RelativeLayout>
