@@ -39,7 +39,15 @@ public class MainActivity extends Activity implements View.OnClickListener {
 		case MotionEvent.ACTION_DOWN: {
 			pre_x = (int) event.getX();
 			pre_y = (int) event.getY();
-			click = "";
+			break;
+		}
+		
+		case MotionEvent.ACTION_UP: {
+			long delay = event.getEventTime() - event.getDownTime();
+			if (delay < 250) {
+				click = "left";
+				new Thread(new ClientThread()).start();
+			}
 			break;
 		}
 
@@ -90,7 +98,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
 					pkg = click;
 				}
 				DatagramSocket s = new DatagramSocket();
-				InetAddress serverAddr = InetAddress.getByName("192.168.43.19");
+				InetAddress serverAddr = InetAddress.getByName("192.168.1.35");
 				byte[] Data = new byte[1024];
 				Data = pkg.getBytes("UTF-8");
 				DatagramPacket sendPacket = new DatagramPacket(Data,
