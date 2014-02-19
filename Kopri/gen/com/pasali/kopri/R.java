@@ -38,6 +38,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int Button2=0x7f090002;
         public static final int button1=0x7f090000;
         public static final int editText1=0x7f090001;
+        public static final int textView1=0x7f090003;
     }
     public static final class layout {
         public static final int activity_main=0x7f030000;

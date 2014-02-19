@@ -4,11 +4,14 @@ import java.io.IOException;
 import java.net.DatagramSocket;
 import java.net.InetAddress;
 import java.net.DatagramPacket;
+
 import android.os.Bundle;
 import android.app.Activity;
+import android.graphics.Color;
 import android.view.View;
 import android.view.MotionEvent;
 import android.widget.Button;
+import android.widget.TextView;
 
 public class TouchActivity extends Activity implements View.OnClickListener {
 
@@ -26,6 +29,31 @@ public class TouchActivity extends Activity implements View.OnClickListener {
 		Button1.setOnClickListener(this);
 		Button Button2 = (Button) findViewById(R.id.Button2);
 		Button2.setOnClickListener(this);
+		TextView text = (TextView) findViewById(R.id.textView1);
+		text.setText("     ");
+		text.setBackgroundColor(Color.CYAN);
+		text.setOnTouchListener(new View.OnTouchListener() {
+			
+			public boolean onTouch(View v, MotionEvent event) {
+				final int action = event.getAction();
+
+				switch (action) {
+					case MotionEvent.ACTION_DOWN: {
+						pre_y = (int) event.getY();
+						break;
+					}
+					
+					case MotionEvent.ACTION_MOVE: {
+						distance_y = String.valueOf((int) event.getY() - pre_y);
+						pre_y = (int) event.getY();
+						click = "scrl";
+						new Thread(new ClientThread()).start();
+						break;
+					}
+				}
+				return true;
+			}
+		});
 
 	}
 
@@ -83,6 +111,8 @@ public class TouchActivity extends Activity implements View.OnClickListener {
 			try {
 				if (click.equals("")) {
 					pkg = distance_x + "," + distance_y;
+				} else if (click.equals("scrl")) {
+					pkg = click + "," + distance_y;
 				} else {
 					pkg = click;
 				}

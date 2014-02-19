@@ -38,11 +38,17 @@ public class Server {
 					
 				} else {
 					String[] Coords = data.split(",");
-					int x = Integer.parseInt(Coords[0]);
-					int y = (int) Float.parseFloat(Coords[1]);
-					cx += x;
-					cy += y;
-					robo.mouseMove(cx, cy);
+					if(Coords[0].equals("scrl")) {
+						int dist_y = Integer.parseInt(Coords[1]);
+						robo.mouseWheel(dist_y);
+					} else {
+						int x = Integer.parseInt(Coords[0]);
+						int y = (int) Float.parseFloat(Coords[1]);
+						cx += x;
+						cy += y;
+						robo.mouseMove(cx, cy);
+					}
+					
 				}
 
 			}
