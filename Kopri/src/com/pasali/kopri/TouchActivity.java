@@ -29,6 +29,9 @@ public class TouchActivity extends Activity implements View.OnClickListener {
 		Button1.setOnClickListener(this);
 		Button Button2 = (Button) findViewById(R.id.Button2);
 		Button2.setOnClickListener(this);
+		/*
+		 * TextView'i scrollbar olarak kullanıyoruz.
+		 */
 		TextView text = (TextView) findViewById(R.id.textView1);
 		text.setText("     ");
 		text.setBackgroundColor(Color.CYAN);
@@ -56,7 +59,9 @@ public class TouchActivity extends Activity implements View.OnClickListener {
 		});
 
 	}
-
+	/*
+	 * Fare imlecinin hareketleri
+	 */
 	@Override
 	public boolean onTouchEvent(MotionEvent event) {
 		final int action = event.getAction();
@@ -87,7 +92,10 @@ public class TouchActivity extends Activity implements View.OnClickListener {
 		}
 		return true;
 	}
-
+	
+	/*
+	 * Sağ-Sol fare tıklamaları
+	 */
 	public void onClick(View v) {
 
 		switch (v.getId()) {
@@ -102,7 +110,10 @@ public class TouchActivity extends Activity implements View.OnClickListener {
 		}
 		new Thread(new ClientThread()).start();
 	}
-
+	
+	/*
+	 * Sunucuya bağlantı ve veri gönderme
+	 */
 	class ClientThread implements Runnable {
 
 		@Override

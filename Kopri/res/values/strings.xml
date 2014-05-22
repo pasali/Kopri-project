@@ -5,5 +5,7 @@
     <string name="action_settings">Settings</string>
     <string name="connect">Bağlan</string>
     <string name="title_activity_fullscreen">FullscreenActivity</string>
+    <string name="title_activity_keyboard">KeyboardActivity</string>
+    <string name="hello_world">Hello world!</string>
 
 </resources>
